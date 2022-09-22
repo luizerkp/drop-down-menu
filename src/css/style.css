@@ -12,7 +12,7 @@ p {
     padding: 0;
 }
 
-#header {
+.header {
   height: 8vh;
   background-color: black;
 }
