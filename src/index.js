@@ -1,16 +1,50 @@
-import "./css/style.css";
 import "./css/normalize.css";
 import "material-icons/iconfont/round.css";
-import logo from "./imgs/drop-down-logo.png";
+import "./css/style.css";
 import footer from "./footerContent";
+
+// create header content
+const headerContent = (() => {
+  const toggleDropDownDisplay = (id) => {
+    const dropDown = document.querySelector(`[data-id="${id}"]`);
+    // console.log(dropDown);
+    dropDown.classList.toggle("drop-down-links-visible");
+  };
+
+  const toggleDropDownIcon = (icon) => {
+    if (icon.textContent === "arrow_drop_down") {
+      icon.textContent = "arrow_drop_up";
+    } else {
+      icon.textContent = "arrow_drop_down";
+    }
+  };
+
+  return {
+    toggleDropDownDisplay,
+    toggleDropDownIcon,
+  };
+})();
+
+const events = (() => {
+  const addHeaderLinkEvents = () => {
+    const headerLinks = document.querySelectorAll(".header-link");
+    headerLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        const dropIcon = link.nextElementSibling;
+        headerContent.toggleDropDownDisplay(link.getAttribute("id"));
+        headerContent.toggleDropDownIcon(dropIcon);
+      });
+    });
+  };
+
+  return {
+    addHeaderLinkEvents,
+  };
+})();
 
 // buildHeaderContent
 (() => {
-  const logoImg = document.createElement("img");
-  logoImg.src = logo;
-  logoImg.alt = "Logo that reads Phony";
-  const header = document.querySelector(".header");
-  header.insertAdjacentElement("afterbegin", logoImg);
+  events.addHeaderLinkEvents();
   // const logoContent = document.query
   // const headerDiv = document.createElement("header");
   // headerDiv.setAttribute("id", "header-content");
