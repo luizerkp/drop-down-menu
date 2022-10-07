@@ -52,7 +52,7 @@ nav {
 }
 
 .drop-down-links-visible {
-  display: grid !important;
+  display: grid;
 }
 
 .logo {
@@ -85,7 +85,6 @@ nav {
 .header-top-link:hover >.arrow path, .drop-down-menu-link:hover >.arrow path {
   d: path("M12 14l-4-4h8z");
 }
-
 
 #search-bar {
   height: 32px;
