@@ -1,5 +1,6 @@
 import "./css/normalize.css";
 import "material-icons/iconfont/round.css";
+import "material-icons/iconfont/outlined.css";
 import "./css/style.css";
 import footer from "./footerContent";
 
