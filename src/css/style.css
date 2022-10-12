@@ -1,5 +1,3 @@
-
-
 body {
     padding: 0;
     min-height: 100vh;
@@ -35,9 +33,28 @@ header button {
   position: relative;
 }
 
+.modal-menu {
+  position: absolute;
+  opacity: 0;
+  top: calc(100% + .25);
+  transform: translateY(-10px);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
+  color: black;
+}
+
+ .modal-menu.modal-menu-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+ }
+
 .header-top {
   display: flex;
-  margin-top: 10px;
   align-items: center;
   gap: 5px;
 }
@@ -55,6 +72,7 @@ header button {
 .logo {
   height: 48px;
   width: auto;
+  padding-top: 10px;
 }
 
 #close-btn {
@@ -68,18 +86,23 @@ header button {
 .search-bar-div {
   width: 100%;
   margin: 14px;
+  padding-top: 10px;
 }
  .header-top-link, .drop-down-menu-link {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding-top: 10px;
  }
 
  .arrow path {
   transition: d 0.45s;
 }
 
-.header-top-link:hover >.arrow path, .drop-down-menu-link:hover >.arrow path {
+.arrow-active {
+  background-color: rgb(6, 106, 221);
+}
+.arrow-active >.header-top-link >.arrow path, .drop-down-menu-link:hover >.arrow path {
   d: path("M12 14l-4-4h8z");
 }
 
@@ -112,6 +135,10 @@ header button {
   align-items: center;
   background-color: rgb(43, 42, 42);
   width: 100vw;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
 }
 
 /* Sticky Footer and credit */
@@ -158,6 +185,5 @@ header button {
  } */
 
 html {
-  visibility: visible;
-  opacity: 1;
+  display: block;
 }
