@@ -37,8 +37,8 @@ header button {
   position: absolute;
   opacity: 0;
   top: calc(100% + .25);
-  transform: translateY(-10px);
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  transform: translateY(-20px);
+  transition: opacity 200ms ease-in-out, transform 350ms ease-in-out;
   pointer-events: none;
   z-index: 2;
   background-color: white;
