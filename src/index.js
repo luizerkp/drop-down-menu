@@ -40,15 +40,30 @@ const events = (() => {
       });
     });
   };
+  const addDropMenuEvents = () => {
+    const dropDownMenuItems = document.querySelectorAll(".drop-down-menu-item");
+    dropDownMenuItems.forEach((item) => {
+      item.addEventListener("mouseenter", (e) => {
+        e.target.querySelector(".drop-down-links").classList.add("active");
+        e.target.classList.add("arrow-active-no-bg");
+      });
+      item.addEventListener("mouseleave", (e) => {
+        e.target.querySelector(".drop-down-links").classList.remove("active");
+        e.target.classList.remove("arrow-active-no-bg");
+      });
+    });
+  };
 
   return {
     addModalDropMenuEvent,
+    addDropMenuEvents,
   };
 })();
 
 // buildHeaderContent
 (() => {
   events.addModalDropMenuEvent();
+  events.addDropMenuEvents();
   // const logoContent = document.query
   // const headerDiv = document.createElement("header");
   // headerDiv.setAttribute("id", "header-content");

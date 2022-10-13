@@ -25,33 +25,73 @@ header button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10%;
+  margin: 0 10vw;
   color: white;
 }
 
-.header-link {
+.header-top-links {
   position: relative;
 }
 
 .modal-menu {
   position: absolute;
   opacity: 0;
-  top: calc(100% + .25);
+  top: calc(100% + .30rem);
   transform: translateY(-20px);
   transition: opacity 200ms ease-in-out, transform 350ms ease-in-out;
   pointer-events: none;
   z-index: 2;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
   color: black;
+  font-size: 1rem;
+  right: 0;
+  width: 300px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
- .modal-menu.modal-menu-active {
+.modal-menu a {
+  text-decoration: none;
+  color: black;
+  opacity: .8;
+}
+
+.modal-menu span {
+  opacity: .7;
+  font-size: 1rem;
+  margin-right: 4px;
+}
+
+.modal-menu hr {
+  opacity: .4;
+}
+
+.modal-menu-item {
+  padding: 18px 24px; 
+  border: none;
+  border-bottom: solid 1px rgba(14, 30, 37, 0.10);
+}
+
+#sign-in-btn{
+  font-size: 1rem;
+  padding: 12px 56px;
+  background-color: rgb(21, 82, 216);
+  text-align: center;
+  align-self: center;
+}
+
+.cart-msg {
+  opacity: .5;
+}
+.modal-menu.modal-menu-active {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
- }
+}
 
 .header-top {
   display: flex;
@@ -60,13 +100,46 @@ header button {
 }
  
 .drop-down-links {
-  display: none;
-  background-color: aqua;
   position: absolute;
+  height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 200ms ease-in-out, transform 350ms ease-in-out, height 300ms ease-in-out;
+  pointer-events: none;
+  color: white;
+  font-size: .95rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(max-content, 375px));
+  background-color: #1F2024;
+  left: 0;
+  width: 100vw;
 }
 
-.drop-down-links-visible {
-  display: grid;
+.drop-down-links.active {
+  height: fit-content;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.drop-down-links-item, .links{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drop-down-links-item {
+  padding: 20px 100px;
+}
+
+.drop-down-links-header {
+  margin: 0 0 4px;
+  padding: 0 25px 0 0;
+}
+.links a {
+  text-decoration: none;
+  color: rgb(107, 107, 107);
+  font-size: .9rem;
 }
 
 .logo {
@@ -83,18 +156,28 @@ header button {
   flex: 1;
   background-color: white;
 }
+
 .search-bar-div {
-  width: 100%;
   margin: 14px;
   padding-top: 10px;
 }
- .header-top-link, .drop-down-menu-link {
+
+.header-top-link, .drop-down-menu-link {
   display: flex;
   align-items: center;
   cursor: pointer;
   padding-top: 10px;
  }
 
+ .arrow-large {
+  width: 44px;
+  height: 44px;
+
+ }
+ .arrow-small {
+  width: 24px;
+  height: 24px;
+ }
  .arrow path {
   transition: d 0.45s;
 }
@@ -102,7 +185,8 @@ header button {
 .arrow-active {
   background-color: rgb(6, 106, 221);
 }
-.arrow-active >.header-top-link >.arrow path, .drop-down-menu-link:hover >.arrow path {
+.arrow-active >.header-top-link >.arrow path, 
+.arrow-active-no-bg >.drop-down-header >.drop-down-menu-link >.arrow path {
   d: path("M12 14l-4-4h8z");
 }
 
@@ -133,8 +217,10 @@ header button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(43, 42, 42);
+  background-color: #1C1C1C;
   width: 100vw;
+  height: 40px;
+  gap: 25px;
 }
 
 .rotate-90 {
